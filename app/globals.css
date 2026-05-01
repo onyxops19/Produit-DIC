@@ -1,6 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #B91C1C;
+  --color-brand-red-dark: #991B1B;
+  --color-brand-red-light: #DC2626;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
 
 :root {
   --brand-red: #B91C1C;
