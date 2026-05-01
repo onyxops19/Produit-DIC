@@ -14,17 +14,17 @@ export default function SectionHeading({
   className = "",
 }: SectionHeadingProps) {
   return (
-    <div className={`${centered ? "text-center" : ""} ${className}`}>
+    <div className={`${centered ? "text-center mx-auto" : ""} ${className}`}>
       {eyebrow && (
-        <p className="text-brand-red text-sm font-semibold uppercase tracking-widest mb-3">
+        <p className="text-brand-red text-xs font-bold uppercase tracking-[0.2em] mb-3">
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+      <h2 className="font-display font-extrabold text-slate-900 leading-tight" style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)" }}>
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-zinc-400 text-lg max-w-2xl leading-relaxed">
+        <p className="mt-4 text-slate-500 text-base max-w-2xl leading-relaxed">
           {subtitle}
         </p>
       )}

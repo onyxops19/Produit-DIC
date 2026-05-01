@@ -67,7 +67,7 @@ const jsonLd = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <div className="min-h-screen pt-24 pb-20 bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -88,8 +88,8 @@ export default function ContactPage() {
               <div
                 className={`rounded-2xl p-8 border transition-all duration-300 ${
                   loc.primary
-                    ? "bg-zinc-900 border-brand-red/40 shadow-lg"
-                    : "bg-zinc-900/60 border-zinc-800"
+                    ? "bg-white border-brand-red/30 shadow-lg shadow-red-50"
+                    : "bg-slate-50 border-slate-200"
                 }`}
               >
                 {loc.primary && (
@@ -97,19 +97,19 @@ export default function ContactPage() {
                     Principal
                   </span>
                 )}
-                <h2 className="text-xl font-bold text-white mb-5">{loc.type}</h2>
+                <h2 className="text-xl font-bold text-slate-900 mb-5">{loc.type}</h2>
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <MapPinIcon className="h-5 w-5 text-brand-red mt-0.5 shrink-0" />
                     <div>
-                      <p className="text-zinc-300">{loc.address}</p>
-                      <p className="text-zinc-400 text-sm">{loc.city}</p>
+                      <p className="text-slate-800">{loc.address}</p>
+                      <p className="text-slate-500 text-sm">{loc.city}</p>
                       <a
                         href={loc.mapUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-brand-red hover:text-red-400 text-sm mt-1 inline-block transition-colors"
+                        className="text-brand-red hover:text-brand-red-dark text-sm mt-1 inline-block transition-colors font-medium"
                       >
                         Voir sur la carte →
                       </a>
@@ -120,7 +120,7 @@ export default function ContactPage() {
                     <PhoneIcon className="h-5 w-5 text-brand-red shrink-0" />
                     <a
                       href={loc.phoneHref}
-                      className="text-zinc-300 hover:text-white font-medium transition-colors"
+                      className="text-slate-700 hover:text-slate-900 font-semibold transition-colors"
                     >
                       {loc.phone}
                     </a>
@@ -128,8 +128,8 @@ export default function ContactPage() {
 
                   {loc.fax && (
                     <div className="flex items-center gap-3">
-                      <PrinterIcon className="h-5 w-5 text-zinc-600 shrink-0" />
-                      <span className="text-zinc-500 text-sm">
+                      <PrinterIcon className="h-5 w-5 text-slate-400 shrink-0" />
+                      <span className="text-slate-500 text-sm">
                         Télécopieur : {loc.fax}
                       </span>
                     </div>
@@ -141,14 +141,14 @@ export default function ContactPage() {
         </div>
 
         <FadeInSection className="mt-8" delay={0.2}>
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center shrink-0">
                 <EnvelopeIcon className="h-6 w-6 text-brand-red" />
               </div>
               <div>
-                <p className="font-bold text-white">Envoyez-nous un courriel</p>
-                <p className="text-zinc-400 text-sm mt-0.5">
+                <p className="font-bold text-slate-900">Envoyez-nous un courriel</p>
+                <p className="text-slate-500 text-sm mt-0.5">
                   Pour les demandes de catalogue Excel ou questions techniques.
                 </p>
               </div>
@@ -164,12 +164,12 @@ export default function ContactPage() {
         </FadeInSection>
 
         <FadeInSection className="mt-8" delay={0.25}>
-          <div className="rounded-2xl overflow-hidden border border-zinc-800 h-80">
+          <div className="rounded-2xl overflow-hidden border border-slate-200 h-80 shadow-sm">
             <iframe
               title="Produits IDC — 1275 Rue Michelin, Laval"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: "grayscale(0.8) invert(0.9) hue-rotate(180deg)" }}
+              style={{ border: 0, filter: "grayscale(0.3)" }}
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"

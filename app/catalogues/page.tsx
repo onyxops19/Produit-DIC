@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function CataloguesPage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <div className="min-h-screen pt-24 pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <FadeInSection>
           <SectionHeading
@@ -35,14 +35,14 @@ export default function CataloguesPage() {
         </div>
 
         <FadeInSection className="mt-12">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+          <div className="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center shrink-0">
                 <DocumentArrowDownIcon className="h-6 w-6 text-brand-red" />
               </div>
               <div>
-                <h3 className="font-bold text-white text-lg">Catalogue complet</h3>
-                <p className="text-zinc-400 text-sm mt-1">
+                <h3 className="font-bold text-slate-900 text-lg">Catalogue complet</h3>
+                <p className="text-slate-500 text-sm mt-1">
                   Toutes les 8 sections réunies dans un seul fichier PDF pour
                   faciliter votre recherche.
                 </p>
@@ -59,10 +59,10 @@ export default function CataloguesPage() {
         </FadeInSection>
 
         <FadeInSection className="mt-6" delay={0.1}>
-          <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
             <div>
-              <h3 className="font-bold text-white text-lg">Formulaire de fabrication (FAB)</h3>
-              <p className="text-zinc-400 text-sm mt-1">
+              <h3 className="font-bold text-slate-900 text-lg">Formulaire de fabrication (FAB)</h3>
+              <p className="text-slate-500 text-sm mt-1">
                 Téléchargez la feuille FAB, remplissez-la et retournez-la par
                 télécopieur au{" "}
                 <span className="text-brand-red font-medium">{formFab.fax}</span>.
@@ -79,7 +79,7 @@ export default function CataloguesPage() {
         </FadeInSection>
 
         <FadeInSection className="mt-8 text-center" delay={0.15}>
-          <p className="text-zinc-500 text-sm">
+          <p className="text-slate-500 text-sm">
             Pour obtenir le catalogue complet en format Excel, envoyez votre
             demande par courriel à{" "}
             <a
@@ -90,7 +90,7 @@ export default function CataloguesPage() {
             </a>
             .
           </p>
-          <p className="text-zinc-600 text-xs mt-2">
+          <p className="text-slate-500 text-xs mt-2">
             * Le prix de catalogue ne comprend pas l&apos;escompte. En cas de
             différence, le prix de l&apos;entrepôt prévaut.
           </p>

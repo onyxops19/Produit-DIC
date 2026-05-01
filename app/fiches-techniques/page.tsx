@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function FichesTechniquesPage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <div className="min-h-screen pt-24 pb-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInSection className="mb-12">
           <SectionHeading

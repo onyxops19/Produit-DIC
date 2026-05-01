@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
@@ -18,7 +19,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -27,29 +28,34 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 shadow-xl shadow-black/40"
-          : "bg-transparent"
+          ? "bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-sm shadow-slate-200/60"
+          : "bg-white border-b border-slate-100"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="w-7 h-7 rounded bg-brand-red flex items-center justify-center text-white font-black text-xs shrink-0 group-hover:scale-110 transition-transform">
-            IDC
-          </span>
-          <span className="font-bold text-white tracking-tight hidden sm:block">
-            Produits IDC
-          </span>
+        {/* Logo */}
+        <Link href="/" className="flex items-center shrink-0 hover:opacity-80 transition-opacity">
+          <Image
+            src="/IDC-logo.gif"
+            alt="Les Produits de Chauffage IDC Inc."
+            width={160}
+            height={44}
+            className="h-10 w-auto object-contain"
+            priority
+            unoptimized
+          />
         </Link>
 
-        <ul className="hidden md:flex items-center gap-1">
+        {/* Desktop links */}
+        <ul className="hidden md:flex items-center gap-0.5">
           {navLinks.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   pathname === href
-                    ? "text-white bg-zinc-800"
-                    : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
+                    ? "text-brand-red bg-red-50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                 }`}
               >
                 {label}
@@ -58,29 +64,29 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Phone CTA */}
         <a
           href="tel:+14506638969"
-          className="hidden md:inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+          className="hidden md:inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white text-sm font-semibold px-4 py-2 rounded-lg transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-red-900/20"
         >
+          <PhoneIcon className="h-4 w-4" />
           <span>(450) 663-8969</span>
         </a>
 
+        {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-zinc-400 hover:text-white"
+          className="md:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Menu"
         >
-          {mobileOpen ? (
-            <XMarkIcon className="h-6 w-6" />
-          ) : (
-            <Bars3Icon className="h-6 w-6" />
-          )}
+          {mobileOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
         </button>
       </nav>
 
+      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-zinc-950 border-t border-zinc-800 px-4 pb-4">
-          <ul className="flex flex-col gap-1 pt-2">
+        <div className="md:hidden bg-white border-t border-slate-100 px-4 pb-4 shadow-lg">
+          <ul className="flex flex-col gap-1 pt-3">
             {navLinks.map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -88,8 +94,8 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     pathname === href
-                      ? "text-white bg-zinc-800"
-                      : "text-zinc-400 hover:text-white hover:bg-zinc-800"
+                      ? "text-brand-red bg-red-50"
+                      : "text-slate-700 hover:text-slate-900 hover:bg-slate-50"
                   }`}
                 >
                   {label}
@@ -99,8 +105,9 @@ export default function Navbar() {
             <li className="mt-2">
               <a
                 href="tel:+14506638969"
-                className="block text-center bg-brand-red text-white font-semibold px-4 py-3 rounded-lg text-sm"
+                className="flex items-center justify-center gap-2 bg-brand-red text-white font-semibold px-4 py-3 rounded-lg text-sm"
               >
+                <PhoneIcon className="h-4 w-4" />
                 (450) 663-8969
               </a>
             </li>

@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+
+const barlowCondensed = Barlow_Condensed({
+  weight: ["600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--font-barlow",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://produits-idc.com"),
@@ -41,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr-CA" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="font-sans bg-zinc-950 text-zinc-100 antialiased">
+    <html lang="fr-CA" className={`${GeistSans.variable} ${GeistMono.variable} ${barlowCondensed.variable}`}>
+      <body className="font-sans bg-white text-slate-900 antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />
